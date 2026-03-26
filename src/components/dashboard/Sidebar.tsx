@@ -1,20 +1,21 @@
 import { LayoutDashboard, GraduationCap, Briefcase, Rocket, FlaskConical, Award, BarChart3, Settings, LogOut } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const menuSections = [
   {
     label: "MAIN DASHBOARD",
-    items: [{ icon: LayoutDashboard, label: "Overview", active: true }],
+    items: [{ icon: LayoutDashboard, label: "Overview", href: "/" }],
   },
   {
     label: "STUDENTS",
     items: [
-      { icon: GraduationCap, label: "Education" },
-      { icon: Briefcase, label: "Internships" },
-      { icon: Rocket, label: "Projects" },
-      { icon: FlaskConical, label: "Research" },
-      { icon: Award, label: "Certifications" },
-      { icon: BarChart3, label: "Results" },
+      { icon: GraduationCap, label: "Education", href: "/education" },
+      { icon: Briefcase, label: "Internships", href: "#" },
+      { icon: Rocket, label: "Projects", href: "#" },
+      { icon: FlaskConical, label: "Research", href: "#" },
+      { icon: Award, label: "Certifications", href: "#" },
+      { icon: BarChart3, label: "Results", href: "#" },
     ],
   },
 ];
