@@ -1,4 +1,4 @@
-import { LayoutDashboard, GraduationCap, Briefcase, Rocket, FlaskConical, Award, BarChart3, Settings, LogOut } from "lucide-react";
+import { LayoutDashboard, GraduationCap, Briefcase, Rocket, FlaskConical, Award, BarChart3, BookOpen, Settings, LogOut } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
