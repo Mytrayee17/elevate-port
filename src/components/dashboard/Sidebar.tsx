@@ -14,8 +14,8 @@ const menuSections = [
       { icon: Briefcase, label: "Internships", href: "#" },
       { icon: Rocket, label: "Projects", href: "#" },
       { icon: FlaskConical, label: "Research", href: "#" },
-      { icon: Award, label: "Certifications", href: "#" },
-      { icon: BarChart3, label: "Results", href: "#" },
+      { icon: Award, label: "Certifications", href: "/certifications" },
+      { icon: BarChart3, label: "Results", href: "/transcript" },
     ],
   },
 ];
