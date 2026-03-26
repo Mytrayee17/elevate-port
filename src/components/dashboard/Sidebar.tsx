@@ -48,7 +48,7 @@ const Sidebar = ({ activePage = "Overview" }: { activePage?: string }) => {
                         : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                     }`}
                   >
-                    <item.icon size={18} strokeWidth={item.active ? 2.5 : 2} />
+                    <item.icon size={18} strokeWidth={item.label === activePage ? 2.5 : 2} />
                     {item.label}
                   </motion.button>
                 </li>
