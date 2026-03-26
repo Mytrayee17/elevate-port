@@ -88,10 +88,10 @@ const BentoGrid = () => {
         className="card-elevated p-6"
       >
         <div className="flex items-center justify-between mb-4">
-          <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center">
-            <Award size={20} className="text-amber-600" />
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <Award size={20} className="text-primary" />
           </div>
-          <span className="text-xs font-bold text-amber-600 tracking-wider uppercase">Certified</span>
+          <span className="text-xs font-bold text-primary tracking-wider uppercase">Certified</span>
         </div>
         <div className="flex flex-wrap gap-2 mb-4">
           {["AWS Cloud", "Azure AI"].map((cert) => (
