@@ -41,7 +41,7 @@ const Sidebar = ({ activePage = "Overview" }: { activePage?: string }) => {
               {section.items.map((item) => (
                 <li key={item.label}>
                   <motion.button
-                    whileHover={{ x: item.active ? 0 : 2 }}
+                    whileHover={{ x: item.label === activePage ? 0 : 2 }}
                     className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors duration-200 ${
                       item.label === activePage
                         ? "bg-sidebar-accent text-sidebar-accent-foreground shadow-sm"
