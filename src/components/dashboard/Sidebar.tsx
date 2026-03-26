@@ -41,17 +41,19 @@ const Sidebar = ({ activePage = "Overview" }: { activePage?: string }) => {
             <ul className="space-y-1">
               {section.items.map((item) => (
                 <li key={item.label}>
-                  <motion.button
-                    whileHover={{ x: item.label === activePage ? 0 : 2 }}
-                    className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors duration-200 ${
-                      item.label === activePage
-                        ? "bg-sidebar-accent text-sidebar-accent-foreground shadow-sm"
-                        : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
-                    }`}
-                  >
-                    <item.icon size={18} strokeWidth={item.label === activePage ? 2.5 : 2} />
-                    {item.label}
-                  </motion.button>
+                  <Link to={item.href}>
+                    <motion.div
+                      whileHover={{ x: item.label === activePage ? 0 : 2 }}
+                      className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors duration-200 ${
+                        item.label === activePage
+                          ? "bg-sidebar-accent text-sidebar-accent-foreground shadow-sm"
+                          : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                      }`}
+                    >
+                      <item.icon size={18} strokeWidth={item.label === activePage ? 2.5 : 2} />
+                      {item.label}
+                    </motion.div>
+                  </Link>
                 </li>
               ))}
             </ul>
