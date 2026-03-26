@@ -13,6 +13,7 @@ const menuSections = [
       { icon: GraduationCap, label: "Education", href: "/education" },
       { icon: Briefcase, label: "Internships", href: "#" },
       { icon: Rocket, label: "Projects", href: "#" },
+      { icon: BookOpen, label: "Courses", href: "/courses" },
       { icon: FlaskConical, label: "Research", href: "#" },
       { icon: Award, label: "Certifications", href: "/certifications" },
       { icon: BarChart3, label: "Results", href: "/transcript" },
