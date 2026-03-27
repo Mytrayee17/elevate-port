@@ -8,6 +8,10 @@ import Education from "./pages/Education.tsx";
 import Transcript from "./pages/Transcript.tsx";
 import Certifications from "./pages/Certifications.tsx";
 import Courses from "./pages/Courses.tsx";
+import Cohorts from "./pages/Cohorts.tsx";
+import Events from "./pages/Events.tsx";
+import Settings from "./pages/Settings.tsx";
+import Profile from "./pages/Profile.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -24,6 +28,10 @@ const App = () => (
           <Route path="/transcript" element={<Transcript />} />
           <Route path="/certifications" element={<Certifications />} />
           <Route path="/courses" element={<Courses />} />
+          <Route path="/cohorts" element={<Cohorts />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/profile" element={<Profile />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
