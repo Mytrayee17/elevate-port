@@ -3,7 +3,7 @@ import Navbar from "@/components/dashboard/Navbar";
 import HeroSection from "@/components/dashboard/HeroSection";
 import BentoGrid from "@/components/dashboard/BentoGrid";
 import ActivityFeed from "@/components/dashboard/ActivityFeed";
-import SemesterMarks from "@/components/dashboard/SemesterMarks";
+import UpcomingThisWeek from "@/components/dashboard/UpcomingThisWeek";
 
 const Index = () => {
   return (
@@ -16,7 +16,7 @@ const Index = () => {
           <BentoGrid />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
             <ActivityFeed />
-            <SemesterMarks />
+            <UpcomingThisWeek />
           </div>
         </main>
       </div>
