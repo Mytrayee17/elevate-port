@@ -40,7 +40,7 @@ const HeroSection = () => {
                   initial={{ width: 0 }}
                   animate={{ width: `${profileStrength}%` }}
                   transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-                  className="h-full rounded-full bg-accent"
+                  className="h-full rounded-full bg-gradient-to-r from-primary to-accent"
                 />
               </div>
               <span className="text-sm font-bold">{profileStrength}%</span>

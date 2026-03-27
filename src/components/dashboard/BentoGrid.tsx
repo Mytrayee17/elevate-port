@@ -33,7 +33,7 @@ const BentoGrid = () => {
           <div>
             <p className="text-sm font-semibold text-foreground">Top 10%</p>
             <p className="text-xs text-muted-foreground">of your cohort</p>
-            <div className="flex items-center gap-1 mt-2 text-accent">
+            <div className="flex items-center gap-1 mt-2 text-success">
               <TrendingUp size={14} />
               <span className="text-xs font-medium">+0.3 this sem</span>
             </div>
