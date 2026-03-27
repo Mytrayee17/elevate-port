@@ -6,20 +6,20 @@
 
 @layer base {
   :root {
-    --background: 210 20% 98%;
-    --foreground: 222 47% 11%;
+    --background: 210 25% 97%;
+    --foreground: 213 55% 23%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 213 55% 23%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 213 55% 23%;
 
-    --primary: 348 68% 38%;
+    --primary: 345 85% 45%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 210 20% 96%;
-    --secondary-foreground: 222 47% 11%;
+    --secondary-foreground: 213 55% 23%;
 
     --muted: 215 20% 95%;
     --muted-foreground: 215 16% 47%;
@@ -30,26 +30,29 @@
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
+    --warning: 40 95% 48%;
+    --warning-foreground: 213 55% 23%;
+
     --border: 214 20% 92%;
-    --input: 214 20% 92%;
-    --ring: 348 68% 38%;
+    --input: 214 20% 90%;
+    --ring: 345 85% 45%;
 
     --radius: 0.75rem;
 
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 215 16% 47%;
-    --sidebar-primary: 348 68% 38%;
+    --sidebar-primary: 345 85% 45%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 348 68% 96%;
-    --sidebar-accent-foreground: 348 68% 38%;
+    --sidebar-accent: 345 85% 96%;
+    --sidebar-accent-foreground: 345 85% 45%;
     --sidebar-border: 214 20% 94%;
-    --sidebar-ring: 348 68% 38%;
+    --sidebar-ring: 345 85% 45%;
 
     /* Custom tokens */
-    --hero-gradient: linear-gradient(135deg, hsl(222 47% 11%) 0%, hsl(348 68% 28%) 100%);
-    --card-shadow: 0 4px 20px hsla(0, 0%, 0%, 0.05);
-    --card-shadow-hover: 0 8px 30px hsla(0, 0%, 0%, 0.08);
-    --card-shadow-lg: 0 10px 40px hsla(0, 0%, 0%, 0.1);
+    --hero-gradient: linear-gradient(135deg, hsl(213 55% 18%) 0%, hsl(345 85% 32%) 100%);
+    --card-shadow: 0 4px 20px hsla(213, 55%, 23%, 0.05);
+    --card-shadow-hover: 0 8px 30px hsla(213, 55%, 23%, 0.08);
+    --card-shadow-lg: 0 20px 40px hsla(213, 55%, 23%, 0.1);
   }
 }
 
