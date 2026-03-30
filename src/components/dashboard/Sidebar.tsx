@@ -1,20 +1,20 @@
-import { LayoutDashboard, GraduationCap, Briefcase, Rocket, FlaskConical, Award, BarChart3, BookOpen, Settings, LogOut, Users, CalendarDays, UserCircle } from "lucide-react";
+import { LayoutDashboard, GraduationCap, Briefcase, Rocket, FlaskConical, Award, BookOpen, Settings, LogOut, Users, CalendarDays, UserCircle } from "lucide-react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const menuSections = [
   {
     label: "MAIN",
     items: [
       { icon: LayoutDashboard, label: "Overview", href: "/" },
-      { icon: GraduationCap, label: "Education", href: "/education" },
-      { icon: BookOpen, label: "Courses", href: "/courses" },
-      { icon: BarChart3, label: "Results", href: "/transcript" },
+      { icon: UserCircle, label: "Profile", href: "/profile" },
     ],
   },
   {
     label: "CAREER",
     items: [
+      { icon: GraduationCap, label: "Education", href: "/education" },
+      { icon: BookOpen, label: "Courses", href: "/courses" },
       { icon: Briefcase, label: "Internships", href: "/internships" },
       { icon: Rocket, label: "Projects", href: "/projects" },
       { icon: FlaskConical, label: "Research", href: "/research" },
@@ -30,77 +30,91 @@ const menuSections = [
   },
 ];
 
-const Sidebar = ({ activePage = "Overview" }: { activePage?: string }) => {
+const Sidebar = () => {
+  const location = useLocation();
+  const currentPath = location.pathname;
+
+  const isActive = (href: string) => {
+    if (href === "/") return currentPath === "/";
+    return currentPath.startsWith(href);
+  };
+
   return (
-    <aside className="fixed left-0 top-0 h-screen w-64 bg-card border-r border-border flex flex-col z-30">
+    <aside className="fixed left-0 top-0 h-screen w-64 glass-heavy flex flex-col z-30">
       {/* Logo */}
-      <div className="flex items-center gap-3 px-6 py-5 border-b border-border">
-        <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-          <span className="text-primary-foreground font-bold text-sm">CI</span>
+      <div className="flex items-center gap-3 px-6 py-5 border-b border-border/50">
+        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-foreground to-foreground/80 flex items-center justify-center shadow-lg">
+          <span className="text-background font-bold text-sm tracking-tight">CI</span>
         </div>
         <span className="font-bold text-lg text-foreground tracking-tight">CIET Portal</span>
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 px-4 py-4 overflow-y-auto space-y-5">
+      <nav className="flex-1 px-4 py-5 overflow-y-auto space-y-6">
         {menuSections.map((section) => (
           <div key={section.label}>
-            <p className="text-[10px] font-bold text-muted-foreground/60 tracking-[0.15em] uppercase px-3 mb-2">
+            <p className="text-[10px] font-bold text-muted-foreground/50 tracking-[0.2em] uppercase px-3 mb-2">
               {section.label}
             </p>
             <ul className="space-y-0.5">
-              {section.items.map((item) => (
-                <li key={item.label}>
-                  <Link to={item.href}>
-                    <motion.div
-                      whileHover={{ x: item.label === activePage ? 0 : 2 }}
-                      className={`w-full flex items-center gap-3 px-3 py-2 rounded-xl text-sm font-medium transition-colors duration-200 ${
-                        item.label === activePage
-                          ? "bg-sidebar-accent text-sidebar-accent-foreground shadow-sm"
-                          : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
-                      }`}
-                    >
-                      <item.icon size={18} strokeWidth={item.label === activePage ? 2.5 : 1.8} />
-                      {item.label}
-                    </motion.div>
-                  </Link>
-                </li>
-              ))}
+              {section.items.map((item) => {
+                const active = isActive(item.href);
+                return (
+                  <li key={item.label}>
+                    <Link to={item.href}>
+                      <motion.div
+                        whileHover={{ x: active ? 0 : 2 }}
+                        className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 relative ${
+                          active
+                            ? "bg-primary/8 text-primary"
+                            : "text-muted-foreground hover:text-foreground hover:bg-foreground/5"
+                        }`}
+                      >
+                        {active && (
+                          <motion.div
+                            layoutId="sidebar-active"
+                            className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-5 rounded-r-full bg-primary"
+                            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                          />
+                        )}
+                        <item.icon size={18} strokeWidth={active ? 2.5 : 1.8} />
+                        {item.label}
+                      </motion.div>
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         ))}
       </nav>
 
-      {/* Bottom */}
-      <div className="px-4 pb-4 space-y-0.5 border-t border-border pt-4">
-        <Link to="/profile">
-          <motion.div
-            whileHover={{ x: activePage === "Profile" ? 0 : 2 }}
-            className={`w-full flex items-center gap-3 px-3 py-2 rounded-xl text-sm font-medium transition-colors duration-200 ${
-              activePage === "Profile"
-                ? "bg-sidebar-accent text-sidebar-accent-foreground shadow-sm"
-                : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
-            }`}
-          >
-            <UserCircle size={18} strokeWidth={activePage === "Profile" ? 2.5 : 1.8} />
-            Profile
-          </motion.div>
-        </Link>
+      {/* System */}
+      <div className="px-4 pb-4 space-y-0.5 border-t border-border/50 pt-4">
+        <p className="text-[10px] font-bold text-muted-foreground/50 tracking-[0.2em] uppercase px-3 mb-2">
+          SYSTEM
+        </p>
         <Link to="/settings">
           <motion.div
-            whileHover={{ x: activePage === "Settings" ? 0 : 2 }}
-            className={`w-full flex items-center gap-3 px-3 py-2 rounded-xl text-sm font-medium transition-colors duration-200 ${
-              activePage === "Settings"
-                ? "bg-sidebar-accent text-sidebar-accent-foreground shadow-sm"
-                : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+            whileHover={{ x: isActive("/settings") ? 0 : 2 }}
+            className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 relative ${
+              isActive("/settings")
+                ? "bg-primary/8 text-primary"
+                : "text-muted-foreground hover:text-foreground hover:bg-foreground/5"
             }`}
           >
-            <Settings size={18} strokeWidth={activePage === "Settings" ? 2.5 : 1.8} />
+            {isActive("/settings") && (
+              <motion.div
+                layoutId="sidebar-active"
+                className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-5 rounded-r-full bg-primary"
+              />
+            )}
+            <Settings size={18} strokeWidth={isActive("/settings") ? 2.5 : 1.8} />
             Settings
           </motion.div>
         </Link>
-        <button className="w-full flex items-center gap-3 px-3 py-2 rounded-xl text-sm font-medium text-primary hover:bg-sidebar-accent nav-link-hover">
-          <LogOut size={18} />
+        <button className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-muted-foreground hover:text-primary hover:bg-primary/5 transition-all duration-200">
+          <LogOut size={18} strokeWidth={1.8} />
           Sign Out
         </button>
       </div>
