@@ -3,8 +3,8 @@ import Navbar from "@/components/dashboard/Navbar";
 import ProfileDashboard from "@/components/profile/ProfileDashboard";
 
 const Profile = () => (
-  <div className="min-h-screen bg-background">
-    <Sidebar activePage="Profile" />
+  <div className="min-h-screen">
+    <Sidebar />
     <div className="ml-64">
       <Navbar />
       <main className="p-8 space-y-6 max-w-[1200px]">

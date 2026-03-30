@@ -4,8 +4,8 @@ import EducationTimeline from "@/components/education/EducationTimeline";
 
 const Education = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Sidebar activePage="Education" />
+    <div className="min-h-screen">
+      <Sidebar />
       <div className="ml-64">
         <Navbar />
         <main className="p-8 space-y-6 max-w-[1200px]">
