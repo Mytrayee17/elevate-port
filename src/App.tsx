@@ -10,6 +10,9 @@ import Certifications from "./pages/Certifications.tsx";
 import Courses from "./pages/Courses.tsx";
 import Cohorts from "./pages/Cohorts.tsx";
 import Events from "./pages/Events.tsx";
+import Internships from "./pages/Internships.tsx";
+import Projects from "./pages/Projects.tsx";
+import Research from "./pages/Research.tsx";
 import Settings from "./pages/Settings.tsx";
 import Profile from "./pages/Profile.tsx";
 import NotFound from "./pages/NotFound.tsx";
@@ -30,6 +33,9 @@ const App = () => (
           <Route path="/courses" element={<Courses />} />
           <Route path="/cohorts" element={<Cohorts />} />
           <Route path="/events" element={<Events />} />
+          <Route path="/internships" element={<Internships />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/research" element={<Research />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/profile" element={<Profile />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
