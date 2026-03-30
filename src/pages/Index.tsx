@@ -7,7 +7,7 @@ import UpcomingThisWeek from "@/components/dashboard/UpcomingThisWeek";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">
       <Sidebar />
       <div className="ml-64">
         <Navbar />
