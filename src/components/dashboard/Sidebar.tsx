@@ -1,4 +1,4 @@
-import { LayoutDashboard, GraduationCap, Briefcase, Rocket, FlaskConical, Award, BookOpen, Settings, LogOut, Users, CalendarDays, UserCircle } from "lucide-react";
+import { LayoutDashboard, GraduationCap, Briefcase, Rocket, FlaskConical, Award, Settings, LogOut, Users, CalendarDays, UserCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 
@@ -14,7 +14,7 @@ const menuSections = [
     label: "CAREER",
     items: [
       { icon: GraduationCap, label: "Education", href: "/education" },
-      { icon: BookOpen, label: "Courses", href: "/courses" },
+      
       { icon: Briefcase, label: "Internships", href: "/internships" },
       { icon: Rocket, label: "Projects", href: "/projects" },
       { icon: FlaskConical, label: "Research", href: "/research" },
