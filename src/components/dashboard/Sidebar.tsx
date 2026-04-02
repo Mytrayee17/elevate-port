@@ -1,4 +1,4 @@
-import { LayoutDashboard, GraduationCap, Briefcase, Rocket, FlaskConical, Award, BookOpen, Settings, LogOut, Users, CalendarDays, UserCircle } from "lucide-react";
+import { LayoutDashboard, GraduationCap, Briefcase, Rocket, FlaskConical, Award, Settings, LogOut, Users, CalendarDays, UserCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 
