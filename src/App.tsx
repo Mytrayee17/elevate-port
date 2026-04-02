@@ -7,7 +7,7 @@ import Index from "./pages/Index.tsx";
 import Education from "./pages/Education.tsx";
 import Transcript from "./pages/Transcript.tsx";
 import Certifications from "./pages/Certifications.tsx";
-import Courses from "./pages/Courses.tsx";
+
 import Cohorts from "./pages/Cohorts.tsx";
 import Events from "./pages/Events.tsx";
 import Internships from "./pages/Internships.tsx";
