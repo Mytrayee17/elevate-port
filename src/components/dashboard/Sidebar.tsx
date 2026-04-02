@@ -14,7 +14,7 @@ const menuSections = [
     label: "CAREER",
     items: [
       { icon: GraduationCap, label: "Education", href: "/education" },
-      { icon: BookOpen, label: "Courses", href: "/courses" },
+      
       { icon: Briefcase, label: "Internships", href: "/internships" },
       { icon: Rocket, label: "Projects", href: "/projects" },
       { icon: FlaskConical, label: "Research", href: "/research" },
