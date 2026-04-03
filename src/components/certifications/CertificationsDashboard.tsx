@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
-import { Award, Zap, Eye, Plus, ExternalLink, ShieldCheck, Cloud, Search, Monitor, X } from "lucide-react";
+import { useState, useRef } from "react";
+import { Award, Zap, Eye, Plus, ExternalLink, ShieldCheck, Cloud, Search, Monitor, X, Upload, ImageIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 interface Certification {
