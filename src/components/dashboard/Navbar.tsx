@@ -1,6 +1,23 @@
-import { Search, Bell, Mail } from "lucide-react";
+import { Search, Bell, Mail, Sun, Moon } from "lucide-react";
+import { Switch } from "@/components/ui/switch";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof window !== "undefined") {
+      return document.documentElement.classList.contains("dark");
+    }
+    return false;
+  });
+
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [isDark]);
+
   return (
     <header className="sticky top-0 z-20 glass-nav">
       <div className="flex items-center justify-between px-8 py-3">
@@ -15,6 +32,13 @@ const Navbar = () => {
               placeholder="Search projects, peers, courses..."
               className="bg-transparent text-sm outline-none w-full text-foreground placeholder:text-muted-foreground font-[Inter,sans-serif]"
             />
+          </div>
+
+          {/* Dark Mode Toggle */}
+          <div className="flex items-center gap-1.5">
+            <Sun size={14} className="text-muted-foreground" />
+            <Switch checked={isDark} onCheckedChange={setIsDark} />
+            <Moon size={14} className="text-muted-foreground" />
           </div>
 
           {/* Icons */}

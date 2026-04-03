@@ -261,6 +261,59 @@ const CertificationsDashboard = () => {
                     <label className="text-sm font-medium text-foreground block mb-1.5">Skills (comma-separated)</label>
                     <input className="w-full px-4 py-2.5 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring" placeholder="Cloud, DevOps, AWS" />
                   </div>
+
+                  {/* Image Upload */}
+                  <div>
+                    <label className="text-sm font-medium text-foreground block mb-1.5">Certificate Image</label>
+                    <div
+                      onDragOver={(e) => { e.preventDefault(); setIsDragging(true); }}
+                      onDragLeave={() => setIsDragging(false)}
+                      onDrop={(e) => {
+                        e.preventDefault();
+                        setIsDragging(false);
+                        const file = e.dataTransfer.files[0];
+                        if (file) handleImageUpload(file);
+                      }}
+                      onClick={() => fileInputRef.current?.click()}
+                      className={`relative w-full rounded-xl border-2 border-dashed transition-all cursor-pointer ${
+                        isDragging
+                          ? "border-primary bg-primary/5"
+                          : certImage
+                          ? "border-border bg-background"
+                          : "border-border hover:border-primary/50 bg-background"
+                      } ${certImage ? "p-2" : "p-6"}`}
+                    >
+                      <input
+                        ref={fileInputRef}
+                        type="file"
+                        accept="image/*"
+                        className="hidden"
+                        onChange={(e) => {
+                          const file = e.target.files?.[0];
+                          if (file) handleImageUpload(file);
+                        }}
+                      />
+                      {certImage ? (
+                        <div className="relative group">
+                          <img src={certImage} alt="Certificate preview" className="w-full h-32 object-cover rounded-lg" />
+                          <button
+                            onClick={(e) => { e.stopPropagation(); setCertImage(null); }}
+                            className="absolute top-1 right-1 w-6 h-6 rounded-full bg-destructive text-destructive-foreground flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                          >
+                            <X size={12} />
+                          </button>
+                        </div>
+                      ) : (
+                        <div className="flex flex-col items-center gap-2 text-muted-foreground">
+                          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                            <Upload size={18} className="text-primary" />
+                          </div>
+                          <p className="text-xs font-medium">Drop image here or click to upload</p>
+                          <p className="text-[11px] text-muted-foreground/70">PNG, JPG up to 5MB</p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </div>
 
                 <div className="flex gap-3 pt-4">
