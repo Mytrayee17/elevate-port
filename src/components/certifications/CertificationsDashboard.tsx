@@ -46,6 +46,17 @@ const sampleCerts: Certification[] = [
 const CertificationsDashboard = () => {
   const [certs, setCerts] = useState<Certification[]>(sampleCerts);
   const [showAddDrawer, setShowAddDrawer] = useState(false);
+  const [certImage, setCertImage] = useState<string | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleImageUpload = (file: File) => {
+    if (file && file.type.startsWith("image/")) {
+      const reader = new FileReader();
+      reader.onload = (e) => setCertImage(e.target?.result as string);
+      reader.readAsDataURL(file);
+    }
+  };
 
   const totalSkills = [...new Set(certs.flatMap((c) => c.skills))].length;
 
